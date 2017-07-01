@@ -1,0 +1,32 @@
+{{#b}}This is a BML example{{/b}}
+{{hr}}
+{{#u}}underlined text {{#danger}}with nested {{#b}}danger{{/b}} tag{{/danger}} and the back to {{/u}}normal text
+
+{{#info}}Style is maintained
+accross {{#b}}lines
+of{{/b}} text
+{{/info}}
+The are even icons {{icon_success}} {{icon_danger}}
+{{#in}}
+You can indent text
+accross multiple {{#success}}lines{{/success}}
+{{/in}}
+
+It even supports lists
+{{#ul}}
+{{#li}}list item{{/li}}
+{{#li}}another list item{{/li}}
+{{#ul}}
+{{#li}}and nested lists{{/li}}
+{{#li}}in a list{{/li}}
+{{/ul}}
+
+{{#li}}back to parent list{{/li}}
+{{/ul}}
+
+{{#box}}
+You can
+box it {{#b}}up{{/b}}
+with a cool box
+and {{#warning}}it can contain {{#u}}markup{{/u}} too{{/warning}}
+{{/box}}

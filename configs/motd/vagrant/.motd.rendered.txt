@@ -1,0 +1,40 @@
+(B[m[24m[27m[38;5;173m ____  _____ ____    ____             
+| __ )|  ___|___ \  |  _ \  _____   __
+|  _ \| |_    __) | | | | |/ _ \ \ / /
+| |_) |  _|  / __/  | |_| |  __/\ V / 
+|____/|_|   |_____| |____/ \___| \_/  
+                                      (B[m[24m[27m[38;5;249m
+
+(B[m[24m[27m[38;5;47m(B[m[1m[24m[27m[38;5;47mEnvironment:(B[m[24m[27m[38;5;47m(B[m[24m[27m[38;5;249m development(vagrant)
+
+(B[m[1m[24m[27m[38;5;249m(B[m[1m[4m[27m[38;5;249mProject URLS(B[m[1m[24m[27m[38;5;249m(B[m[24m[27m[38;5;249m
+
+    ⚬ (B[m[1m[24m[27m[38;5;249mProduction Server(B[m[24m[27m[38;5;249m
+        ⚬ http://yourproject.com
+    ⚬ (B[m[1m[24m[27m[38;5;249mStaging Server(B[m[24m[27m[38;5;249m
+        ⚬ http://staging.yourproject.com
+    ⚬ (B[m[1m[24m[27m[38;5;249mProject Files(B[m[24m[27m[38;5;249m
+        ⚬ http://yourproject.atlassian.net/wiki
+        ⚬ http://yourproject.atlassian.net
+        ⚬ http://bitbucket.org/yourproject
+(B[m[1m[24m[27m[38;5;249m(B[m[24m[27m[38;5;249m
+
+
+╔═════════════════════════════════════════╗
+║ (B[m[1m[24m[27m[38;5;249m(B[m[1m[24m[27m[38;5;24mUseful Commands(B[m[1m[24m[27m[38;5;249m(B[m[24m[27m[38;5;249m                         ║
+║                                         ║
+║ Install or refresh commands by running: ║
+║ (B[m[2m[24m[27m[38;5;249m    install_commands(B[m[24m[27m[38;5;249m                    ║
+║                                         ║
+║ Create a new command by running:        ║
+║ (B[m[2m[24m[27m[38;5;249m    create_cmd -n my_new_command(B[m[24m[27m[38;5;249m        ║
+║                                         ║
+╚═════════════════════════════════════════╝
+
+
+(B[m[2m[24m[27m[38;5;249mTo update this information alter the template at:
+/home/vagrant/bf2/configs/motd/vagrant/motd.template.bml
+
+Then run the following:
+    login_message -u -p -n vagrant
+(B[m[24m[27m[38;5;249m

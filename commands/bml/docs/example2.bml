@@ -1,0 +1,55 @@
+
+{{#b:fmt}}
+	{{#b:b}}
+		This is a
+		{{#b:u}}
+			BML
+		{{/b:u}}
+		example
+		saa	sdasd
+	{{/b:b}}
+{{/b:fmt}}
+
+{{b:hr}}
+
+
+{{#b:horiz}}
+{{#b:list}}
+	{{#b:li}}Item 1{{/b:li}}
+	{{#b:li}}Item 2{{/b:li}}
+{{/b:list}}
+{{/b:horiz}}
+{{b:br}}
+
+
+{{#b:em}}This text is emphasised{{/b:em}}
+
+
+{{#b:h1}}Heading 1{{/b:h1}}
+{{#b:h2}}Heading 2{{/b:h2}}
+{{#b:h3}}Heading 3{{/b:h3}}
+
+{{#b:horiz}}
+{{#b:b}}Bold{{/b:b}}
+{{#b:d}}Dimmed{{/b:d}}
+{{/b:horiz}}
+
+
+
+{{#b:fmt}}
+	pre formatted
+	{{b:br}}
+	with newlines
+{{/b:fmt}}
+
+dssdfs
+
+pre {{#b:success}}formatted {{#b:u}}te{{/b:u}}xt{{/b:success}}
+
+with newlines
+
+
+{{#b:box}}
+This is some content {{#b:danger}}in a{{/b:danger}} box
+over several lines
+{{/b:box}}

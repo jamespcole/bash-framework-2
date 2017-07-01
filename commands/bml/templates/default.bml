@@ -1,0 +1,21 @@
+
+More information about this project can be found at the following URLS:
+
+{{#ul}}
+{{#li}}{{#b}}Production Server{{/b}}{{/li}}
+{{#ul}}
+{{#li}}http://yourproject.com{{/li}}
+{{/ul}}
+
+{{#li}}{{#b}}Staging Server{{/b}}{{/li}}
+{{#ul}}
+{{#li}}http://staging.yourproject.com{{/li}}
+{{/ul}}
+
+{{#li}}{{#b}}Project Files{{/b}}{{/li}}
+{{#ul}}
+{{#li}}http://yourproject.atlassian.net/wiki{{/li}}
+{{#li}}http://yourproject.atlassian.net{{/li}}
+{{#li}}http://bitbucket.org/yourproject{{/li}}
+{{/ul}}
+{{/ul}}

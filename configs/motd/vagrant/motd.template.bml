@@ -1,0 +1,47 @@
+{{#b:warning}}{{#b:figlet}}BF2 Dev{{/b:figlet}}{{/b:warning}}
+
+{{#b:success}}{{#b:b}}Environment:{{/b:b}}{{/b:success}} development(vagrant)
+
+{{#b:b}}{{#b:u}}Project URLS{{/b:u}}{{/b:b}}
+
+{{#b:list}}
+{{#b:li}}{{#b:b}}Production Server{{/b:b}}{{/b:li}}
+{{#b:list}}
+{{#b:li}}http://yourproject.com{{/b:li}}
+{{/b:list}}
+
+{{#b:li}}{{#b:b}}Staging Server{{/b:b}}{{/b:li}}
+{{#b:list}}
+{{#b:li}}http://staging.yourproject.com{{/b:li}}
+{{/b:list}}
+
+{{#b:li}}{{#b:b}}Project Files{{/b:b}}{{/b:li}}
+{{#b:list}}
+{{#b:li}}http://yourproject.atlassian.net/wiki{{/b:li}}
+{{#b:li}}http://yourproject.atlassian.net{{/b:li}}
+{{#b:li}}http://bitbucket.org/yourproject{{/b:li}}
+{{/b:list}}
+{{/b:list}}
+
+{{#b:b}}
+{{/b:b}}
+
+
+{{#b:box}}{{#b:b}}{{#b:info}}Useful Commands{{/b:info}}{{/b:b}}
+
+Install or refresh commands by running:
+{{#b:d}}    install_commands{{/b:d}}
+
+Create a new command by running:
+{{#b:d}}    create_cmd -n my_new_command{{/b:d}}
+
+{{/b:box}}
+
+
+
+{{#b:d}}To update this information alter the template at:
+{{__template_path}}
+
+Then run the following:
+    {{__update_command}}
+{{/b:d}}
