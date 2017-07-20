@@ -12,4 +12,7 @@ provision.init() {
 	provision.require() {
         provision_base.require "$@"
     }
+    provision.isPpaInstalled() {
+    	provision_base.isPpaInstalled "$@"
+    }
 }
