@@ -14,6 +14,7 @@ provision.pyvenv_base.init() {
         local -A __params
         __params['env-name']='py3'
         __params['add-to-bashrc']='0'
+        __params['pyvenv-dir']="/home/${USER}/.pyvenv"
         params.get "$@"
         provision.require 'curl' || {
             logger.error \
@@ -46,7 +47,7 @@ provision.pyvenv_base.init() {
         fi
 
         local __env="${__params['env-name']}"
-        local __install_dir="/home/${USER}/.pyvenv"
+        local __install_dir="${__params['pyvenv-dir']}"
         mkdir -p "${__install_dir}"
         local __pyvenv_dir="${__install_dir}/${__env}"
         if [ ! -f "${__pyvenv_dir}/bin/activate" ]; then
