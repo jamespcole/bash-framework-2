@@ -4,7 +4,7 @@ The aim of this framework is to bring some sort of order, tidiness and reusabili
 
 ## Why?
 
-Bash is awesome, it's portable, reliable, fast, versatile and a powerful tool for provisioning and management.  
+Bash is awesome, it's portable, reliable, fast, versatile and a powerful tool for provisioning and management.
 
 The downside is that scripts are often "quick and dirty" and are not very structured or designed for code reuse.
 
@@ -16,7 +16,7 @@ You can install bf2 as a standalone app by simply cloning this repository.  Howe
 
 To add as a submodule(to the `scripts/bf2` directory in this example) run the following:
 
-`git submodule add git@bitbucket.org:inoutput/bf2.git scripts/bf2`
+`git submodule add https://github.com/jamespcole/bash-framework-2.git scripts/bf2`
 
 To install bf2 simply run the following from the root of the bf2 directory:
 
@@ -32,7 +32,7 @@ This is only required to avoid a logging in and logging out again as the previou
 
 ### Creating an Environment
 
-In most cases you will want to create a new bf2 environment within your project.  This means that you can create project specific commands and modules that live in your project's own repo while still including modules and running commands that live in the core of bf2.  
+In most cases you will want to create a new bf2 environment within your project.  This means that you can create project specific commands and modules that live in your project's own repo while still including modules and running commands that live in the core of bf2.
 
 Fortunately this is super simple to do, once you have bf2 installed simply cd to the directory you want as the root of your own bf2 project and run the following:
 
@@ -112,7 +112,7 @@ This will scaffold and install your new command.  The output will show the path 
 
 ### The Structure of Command Files
 
-Commands live in a subfolder of the `commands` directory, which is located in the root of your bf2 environment.  The implmentation of command is in a file named `run.sh` and the name of the directory that `run.sh` is located in is used as the default name for your command.  So that you can easily run commands the directory called `install_hooks` in the root of your bf2 environment is added to your path when you activate a bf2 environment and contains symlinks to all your command `run.sh` files.  
+Commands live in a subfolder of the `commands` directory, which is located in the root of your bf2 environment.  The implmentation of command is in a file named `run.sh` and the name of the directory that `run.sh` is located in is used as the default name for your command.  So that you can easily run commands the directory called `install_hooks` in the root of your bf2 environment is added to your path when you activate a bf2 environment and contains symlinks to all your command `run.sh` files.
 
 For example:
 
@@ -131,7 +131,7 @@ app
 
 This means that you can run `your_command` from anywhere and it will execute the correct `run.sh` file.
 
-If you have commands that were not created on your machine, for example after pulling updates from git, you can run `install_commands` to refresh the links located in your `install_hooks` directory.  
+If you have commands that were not created on your machine, for example after pulling updates from git, you can run `install_commands` to refresh the links located in your `install_hooks` directory.
 
 NOTE: this is also useful when you have moved, renamed or just generally broken the command symlinks.  It does not not install anything in the system path or make any changes outside your bf2 environment and the symlinks are not checked in to source control so don't be afraid to run `install_commands` when needed.
 
