@@ -28,10 +28,10 @@ provision.mssql.sqlcmd_base.init() {
 
     provision.mssql.sqlcmd_base.addToBashRc() {
         local showAddedInfo=false
-        [ -f "/home/${USER}/.bash_profile" ] && grep -q '^export PATH="$PATH:/opt/mssql-tools/bin"' "/home/${USER}/.bash_profile" || {
-            echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> "/home/${USER}/.bash_profile"
-            showAddedInfo=true
-        }
+        # [ -f "/home/${USER}/.bash_profile" ] && grep -q '^export PATH="$PATH:/opt/mssql-tools/bin"' "/home/${USER}/.bash_profile" || {
+        #     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> "/home/${USER}/.bash_profile"
+        #     showAddedInfo=true
+        # }
 
         [ -f "/home/${USER}/.bashrc" ] && grep -q '^export PATH="$PATH:/opt/mssql-tools/bin"' "/home/${USER}/.bashrc" || {
             echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> "/home/${USER}/.bashrc"

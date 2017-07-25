@@ -39,11 +39,17 @@ provision.mssql_base.init() {
         __params['edition']='3' # 3 is Express edition
         params.get "$@"
 
-        if [ -f '/lib/systemd/system/mssql-server.service' ]; then
+        # if [ -f '/lib/systemd/system/mssql-server.service' ]; then
+        #     logger.info --message \
+        #         'mssql server has already been configured...'
+        #     return 0
+        # fi
+
+        sudo systemctl status mssql-server | grep -q 'Active: active (running)' && {
             logger.info --message \
                 'mssql server has already been configured...'
             return 0
-        fi
+        }
 
         provision.require 'expect' || {
             logger.error --message \
