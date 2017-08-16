@@ -1,13 +1,20 @@
 #!/usr/bin/env bash
 import.require 'provision'
+import.require 'provision.ruby'
 provision.mailcatcher_base.init() {
     provision.mailcatcher_base.__init() {
           import.useModule 'provision'
+          import.useModule 'provision.ruby'
     }
     provision.mailcatcher_base.require() {
         if ! provision.isInstalled 'mailcatcher'; then
-          gem install mailcatcher
-          return $?
+            provision.require 'ruby' || {
+                logger.error --message \
+                    'Failed to install ruby requirement for mailcatcher'
+                    return 1
+            }
+            gem install mailcatcher
+            return $?
         fi
         return 0
     }
