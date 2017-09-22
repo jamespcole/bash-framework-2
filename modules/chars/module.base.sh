@@ -4,7 +4,7 @@ chars_base.init() {
         # http://www.fileformat.info/info/unicode/category/So/list.htm
         declare -g -A __chars_BOX
         chars_base.loadBoxChars
-
+        
         declare -g -A __chars_FIG
         chars_base.loadFigChars
     }

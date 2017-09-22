@@ -43,7 +43,8 @@ textprint_base.init() {
         __textprint_TAGS['figlet']='textprint.figlet'
 
         declare -g -A __textprint_THEMES
-
+        # Force the chars module to load first
+        import.useModule 'chars'
         vendor.include.mo
         textprint_base.defaultTheme
     }
