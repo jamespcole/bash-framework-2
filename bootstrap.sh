@@ -17,7 +17,7 @@ bootstrap.init() {
         # The namespace fo the currently executing command
         declare -g __bf2_CMD_NS
         import.useModule 'logger'
-		import.useModule 'args'
+        import.useModule 'args'
         import.useModule 'help'
 
         trap bootstrap.finish EXIT

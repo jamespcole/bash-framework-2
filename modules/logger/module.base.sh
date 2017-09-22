@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 import.require 'params'
 # Testing remove this later
 import.require 'logger.handlers.formatted'
@@ -5,7 +6,7 @@ import.require 'logger.handlers.formatted'
 
 logger_base.init() {
 	logger_base.__init() {
-        declare -A -g __logger_LEVELS
+        declare -A -g __logger_LEVEL
         __logger_LEVEL['DEBUG']=1
         __logger_LEVEL['INFO']=2
         __logger_LEVEL['WARN']=3
@@ -16,8 +17,8 @@ logger_base.init() {
         # Higher == more verbose
         __logger_SETTINGS['VERBOSITY']=3
         __logger_SETTINGS['WIDTH']=80
-		__logger_SETTINGS['in-loop']='0'
-		__logger_SETTINGS['force-verbose']='0'
+        __logger_SETTINGS['in-loop']='0'
+        __logger_SETTINGS['force-verbose']='0'
         __logger_SETTINGS['decor']='0'
         __logger_SETTINGS['force-decor']='0'
         __logger_SETTINGS['hide-prefix']='0'
