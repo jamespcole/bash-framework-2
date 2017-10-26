@@ -11,6 +11,11 @@ provision_base.init() {
 	provision_base.require() {
 		local __item_name="$1"
 		shift;
+		if ! import.functionExists "provision.${__item_name}.require"; then
+			logger.error --message \
+				"The function 'provision.${__item_name}.require' was not found, did you forget to import the namespace 'provision.${__item_name}'?"
+			return 1
+		fi
 		"provision.${__item_name}.require" "$@"
 	}
 	provision_base.isPackageInstalled() {
