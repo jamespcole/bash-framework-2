@@ -57,7 +57,7 @@ bootstrapping.init() {
             rm -f "${__hooks_path}/${__cmd_dir_name}"
             ln -s "${__cmd_path}" "${__hooks_path}/${__cmd_dir_name}"
 		done
-        bootstrapping.addToBashRc "$__hooks_path" "$(readlink -f ${__path})"
+        # bootstrapping.addToBashRc "$__hooks_path" "$(readlink -f ${__path})"
         echo "-----"
     }
     bootstrapping.addToBashRc() {
