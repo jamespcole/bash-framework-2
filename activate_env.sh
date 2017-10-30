@@ -14,10 +14,25 @@ syspath.removePath() {
     echo "$pathStr"
 }
 
+bf2.removePaths() {
+    local __app_paths
+    local IFS=':'
+    read -r -a __app_paths <<< "${BF2_PATH}"
+    local __app_path
+    local __newPath="$PATH"
+    for __app_path in "${__app_paths[@]}"
+    do
+        if [ "$__app_path" != '' ]; then
+            __newPath=$(syspath.removePath "$__newPath" "${__app_path}/install_hooks")
+        fi
+    done
+    echo "${__newPath}"
+}
+
 # If the BF2 path is set already we are presumably changing environments
 # so we should remove the existing location from the system PATH environment var
 if [ ! -z BF2_FW_PATH ]; then
-    export PATH=$(syspath.removePath "$PATH" "${BF2_FW_PATH}/install_hooks")
+    export PATH="$(bf2.removePaths)"
 fi
 
 # Remove the existing path from the BF2 path
