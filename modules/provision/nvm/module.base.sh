@@ -19,7 +19,7 @@ provision.nvm_base.init() {
 
             # Add to the .bashrc so it loads on subsequent logins
             if [ $(grep 'NVM_DIR' "$HOME/.bashrc" | wc -l) == '0' ]; then
-                echo -e "\nexport NVM_DIR=\"\$HOME/.nvm\"\n[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\" # This loads nvm\n" \
+                echo -e "\nexport NVM_DIR=\"\$HOME/.nvm\"\n[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"\n" \
                     >> "$HOME/.bashrc"
             fi
 
