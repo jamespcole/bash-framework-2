@@ -81,7 +81,7 @@ provision.node_env_base.init() {
 			&& [ $(grep 'NVM_DIR' "$HOME/.bashrc" | wc -l) == '0' ]
 		then
 			echo -e \
-				"\nexport NVM_DIR=\"${__nvm_dir}\"\n[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\" # This loads nvm\n" \
+				"\nexport NVM_DIR=\"${__nvm_dir}\"\n[ -s \"\$NVM_DIR/nvm.sh\" ] && . \"\$NVM_DIR/nvm.sh\"\n" \
 				>> "$HOME/.bashrc"
 		fi
 
