@@ -40,4 +40,10 @@ provision.supervisor.init() {
     provision.supervisor.restart() {
         provision.supervisor_base.restart "$@"
     }
+    provision.supervisor.createSystemdService() {
+        provision.supervisor_base.createSystemdService "$@"
+    }
+    provision.supervisor.createSupervisorConfig() {
+        provision.supervisor_base.createSupervisorConfig "$@"
+    }
 }

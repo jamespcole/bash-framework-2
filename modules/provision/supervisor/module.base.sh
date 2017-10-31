@@ -1,5 +1,10 @@
 import.require 'provision'
 import.require 'params'
+
+vendor.wrap 'mo/mo' 'vendor.include.mo'
+resource.relative 'templates/systemd.supervisor.service.mo'
+resource.relative 'templates/supervisord.conf.mo'
+
 provision.supervisor_base.init() {
     provision.supervisor_base.__init() {
           import.useModule 'provision'
@@ -26,8 +31,13 @@ provision.supervisor_base.init() {
         __params['redirect_stderr']='true'
         __params['stdout_logfile']=''
         __params['stderr_logfile']=''
+        __params['config-file']=''
         params.get "$@"
 
+        local __config_file="/etc/supervisor/conf.d/${__params['name']}.conf"
+        if [ "${__params['config-file']}" != '' ]; then
+            __config_file="${__params['config-file']}"
+        fi
         if [ "${__params['logfile']}" != '' ]; then
             if [ "${__params['stdout_logfile']}" == '' ]; then
                 __params['stdout_logfile']="${__params['logfile']}"
@@ -58,7 +68,7 @@ EOL
             return 1
         fi
 
-        local __config_file="/etc/supervisor/conf.d/${__params['name']}.conf"
+        # local __config_file="/etc/supervisor/conf.d/${__params['name']}.conf"
 
         if [ ! -f "$__config_file" ] \
             || [ "${__params['force']}" == '1' ]; then
@@ -116,5 +126,36 @@ EOL
         #     return 1
         # }
         return 0
+    }
+
+    provision.supervisor_base.createSystemdService() {
+        declare -A __params
+        __params['conf-file']=''
+        __params['description']='Supervisor process control system for UNIX'
+        __params['instance-name']='supervisor'
+        params.get "$@"
+
+        local __serviceFilePath="/lib/systemd/system/${__params['instance-name']}.service"
+        if [ -f "${__serviceFilePath}" ]; then
+            logger.warning --message \
+                "The systemd config for supervisord already exists at '${__serviceFilePath}', skipping..."
+            return 0
+        fi
+        resource.get 'templates/systemd.supervisor.service.mo' \
+            | mo
+            # | mo | sudo tee "${__rpc_config_path}"
+
+    }
+
+    provision.supervisor_base.createSupervisorConfig() {
+        declare -A __params
+        __params['instance-name']='supervisor'
+        __params['log-file']=''
+        __params['child-log-dir']=''
+        __params['configs-d-path']=''
+        params.get "$@"
+
+        resource.get 'templates/supervisord.conf.mo' \
+            | mo
     }
 }
