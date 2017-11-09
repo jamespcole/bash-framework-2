@@ -27,6 +27,8 @@ bootstrap.init() {
         __bootstrap_SETTINGS['script-start-ms']=$(date +%s%3N)
         # Whether or not to send all output via the logger
         __bootstrap_SETTINGS['cap-all-output']='1'
+        # Print command start and end info
+        __bootstrap_SETTINGS['print-cmd-start-and-end']=true
 
         # args depends on logger so we need to call this here
         logger.args
@@ -46,6 +48,7 @@ bootstrap.init() {
 
         # Set output capture to the ENV variable if set
         [ -z $BF2_CAP ] ||  __bootstrap_SETTINGS['cap-all-output']="${BF2_CAP}"
+        [ -z $BF2_PRINT_CMD_INTRO_END ] ||  __bootstrap_SETTINGS['print-cmd-start-and-end']="${BF2_PRINT_CMD_INTRO_END}"
 
         # Actualise all included modules
         import.useModules
@@ -56,7 +59,10 @@ bootstrap.init() {
         args.parse "$@"
         args.processCallbacks
         logger_base.processStartupArgs
-        logger.printCommandStart
+        "${__bootstrap_SETTINGS['print-cmd-start-and-end']}" && {
+            logger.printCommandStart
+        }
+
 		args.validate "$@"
 
         # Run the command
@@ -92,7 +98,10 @@ bootstrap.init() {
                     --message "Script returned exit code \"${__err_stat}\""
             fi
         fi
-        logger.printCommandEnd --exit-status "$__err_stat"
+        "${__bootstrap_SETTINGS['print-cmd-start-and-end']}" && {
+            logger.printCommandEnd --exit-status "$__err_stat"
+        }
+
         exit "$__err_stat"
     }
 }
