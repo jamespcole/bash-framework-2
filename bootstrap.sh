@@ -54,7 +54,10 @@ bootstrap.init() {
         import.useModules
 
         # Initialise the command
-        "${__bf2_CMD_NS}.__init" "$@"
+        import.functionExists "${__bf2_CMD_NS}.__init" && {
+            "${__bf2_CMD_NS}.__init" "$@"
+        }
+
 
         args.parse "$@"
         args.processCallbacks
